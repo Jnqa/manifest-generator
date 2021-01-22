@@ -1,12 +1,13 @@
 const dirTree = require("directory-tree")
 const crypto = require('crypto')
 const fs = require('fs')
+const path = core.getInput('path', { required: true });
 
 let manifest = {
 	version: require('../package.json').version,
 	files: {}
 }
-dirTree("./dist", undefined, (item, path, stats) =>
+dirTree("./${path}", undefined, (item, path, stats) =>
 {
 	let fname = item.path.replace(/^dist\//, '')
 	let fcont = fs.readFileSync(item.path).toString('utf8')
@@ -16,4 +17,4 @@ dirTree("./dist", undefined, (item, path, stats) =>
 	}
 })
 
-fs.writeFileSync("./dist/manifest.json", JSON.stringify(manifest))
+fs.writeFileSync("./${path}/manifest.json", JSON.stringify(manifest))
