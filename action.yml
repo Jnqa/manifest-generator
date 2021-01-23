@@ -9,9 +9,10 @@ inputs:
 runs:
   using: "composite"
   steps: 
-  - name: Run Script
-    shell: node12
+  - name: Create scripts/manifest.js
+    shell: bash
     run: |
+      cat << EOF > scripts/manifest.js
       const dirTree = require("directory-tree")
       const crypto = require('crypto')
       const fs = require('fs')
@@ -24,12 +25,15 @@ runs:
         let fname = item.path.replace(/^${{ inputs.path }}\//, '')
         let fcont = fs.readFileSync(item.path).toString('utf8')
         manifest.files[fname] = {
-        "hash": crypto.createHash('sha256').update(fcont).digest('hex'),
-        "size": stats.size
+          "hash": crypto.createHash('sha256').update(fcont).digest('hex'),
+          "size": stats.size
       }
       })
       fs.writeFileSync("./${{ inputs.path }}/manifest.json", JSON.stringify(manifest))
-
+      EOF
+  - name: Run scripts/manifest.js
+    shell: bash
+    run: node scripts/manifest
 #   using: 'node12'
 #   main: 'dist/manifest.js'
 #   main: 'dist/index.js'
