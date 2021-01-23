@@ -9,10 +9,10 @@ inputs:
 runs:
   using: "composite"
   steps: 
-  - name: Create scripts/manifest.js
+  - name: Create ./scripts/manifest.js
     shell: bash
     run: |
-      cat << EOF > scripts/manifest.js
+      cat << EOF > ./scripts/manifest.js
       const dirTree = require("directory-tree")
       const crypto = require('crypto')
       const fs = require('fs')
@@ -31,9 +31,9 @@ runs:
       })
       fs.writeFileSync("./${{ inputs.path }}/manifest.json", JSON.stringify(manifest))
       EOF
-  - name: Run scripts/manifest.js
-    shell: bash
-    run: node scripts/manifest
+#   - name: Run scripts/manifest.js
+#     shell: bash
+#     run: node scripts/manifest
 #   using: 'node12'
 #   main: 'dist/manifest.js'
 #   main: 'dist/index.js'
