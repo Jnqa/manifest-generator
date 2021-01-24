@@ -3,37 +3,8 @@ description: ''
 author: ''
 inputs:
   path: # change this
-    required: true
     description: ''
     default: 'dist'
 runs:
-  using: "composite"
-  steps: 
-  - name: Create ./scripts/manifest.js
-    shell: bash
-    run: |
-      cat << EOF > ./scripts/manifest.js
-      const dirTree = require("directory-tree")
-      const crypto = require('crypto')
-      const fs = require('fs')
-      let manifest = {
-      version: require('../package.json').version,
-      files: {}
-      }
-      dirTree("./${{ inputs.path }}", undefined, (item, path, stats) =>
-      {
-        let fname = item.path.replace(/^${{ inputs.path }}\//, '')
-        let fcont = fs.readFileSync(item.path).toString('utf8')
-        manifest.files[fname] = {
-          "hash": crypto.createHash('sha256').update(fcont).digest('hex'),
-          "size": stats.size
-      }
-      })
-      fs.writeFileSync("./${{ inputs.path }}/manifest.json", JSON.stringify(manifest))
-      EOF
-#   - name: Run scripts/manifest.js
-#     shell: bash
-#     run: node scripts/manifest
-#   using: 'node12'
-#   main: 'dist/manifest.js'
-#   main: 'dist/index.js'
+  using: 'node12'
+  main: 'dist/index.js'
