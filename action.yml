@@ -11,10 +11,13 @@ runs:
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
+      shell: bash
     - name: Install dependencies
       run: yarn
+      shell: bash
     - name: Manifest
       run: npm run package.json && node scripts/manifest
       shell: bash
     - name: Build project
       run: yarn ci:build
+      shell: bash
