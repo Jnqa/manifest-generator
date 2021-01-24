@@ -7,4 +7,8 @@ inputs:
     default: 'dist'
 runs:
   using: 'node12'
-  main: 'dist/index.js'
+  steps: 
+    - name: Archive
+      run: dist/index.js
+      shell: node
+  
