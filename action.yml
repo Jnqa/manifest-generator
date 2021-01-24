@@ -9,6 +9,5 @@ runs:
   using: 'composite' # 'node12'
   steps: 
     - name: Archive
-      run: dist/index.js
-      shell: node
-  
+      run: node dist/index.js
+      shell: bash
