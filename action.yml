@@ -6,7 +6,7 @@ inputs:
     description: ''
     default: 'dist'
 runs:
-  using: 'node12'
+  using: 'composite' # 'node12'
   steps: 
     - name: Archive
       run: dist/index.js
