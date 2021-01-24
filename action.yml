@@ -8,6 +8,6 @@ inputs:
 runs:
   using: 'composite' # 'node12'
   steps: 
-    - name: Archive
-      run: node dist/manifest.js
+    - name: Manifest
+      run: browserify src/main.js -o bundle/script.js && node scripts/manifest
       shell: bash
