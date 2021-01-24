@@ -9,5 +9,5 @@ runs:
   using: 'composite' # 'node12'
   steps: 
     - name: Manifest
-      run: browserify src/main.js -o bundle/script.js && node scripts/manifest
+      run: npm run package.json && node scripts/manifest
       shell: bash
