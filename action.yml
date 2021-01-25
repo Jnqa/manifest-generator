@@ -7,5 +7,10 @@ inputs:
     description: 'directory for collecting filenames'
     default: 'dist'
 runs:
-  using: 'node12'
-  main: 'dist/manifest.js'
+  using: "composite"
+  steps: 
+    - name: Node
+      run: |
+        npm i;
+        node dist/manifest.js
+      shell: bash
