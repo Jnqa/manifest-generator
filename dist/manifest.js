@@ -1,7 +1,7 @@
 const dirTree = require("directory-tree")
 const crypto = require('crypto')
 const fs = require('fs')
-const path = core.getInput('path', { required: true });
+const path = core.getInput('path', { required: true })
 
 let manifest = {
 	version: require('../package.json').version,
