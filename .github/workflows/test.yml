@@ -18,9 +18,8 @@ jobs:
           node-version: '14'
       - run: |
           npm install
-          node package.json
 
-      - uses: Jnqa/manifest-generator@main
+      - uses: ./
         with:
           path: 'dist'
 
