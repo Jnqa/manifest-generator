@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          npm install -g
+          npm install
       - run: |
           npm install directory-tree
       - run: |
@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: |
+          npm install directory-tree
       - uses: Jnqa/manifest-generator@main
         with:
           path: 'dist'
