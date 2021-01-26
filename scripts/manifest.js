@@ -1,6 +1,8 @@
 const dirTree = require("directory-tree")
 const crypto = require('crypto')
 const fs = require('fs')
+const core = require('@actions/core')
+
 const path = core.getInput('path', { required: true })
 
 let manifest = {
