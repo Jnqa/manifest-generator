@@ -16,7 +16,7 @@ runs:
     - name: run script
       shell: bash
       run: |
-        node scripts/manifest.js'
+        node scripts/manifest.js
 
 
 
