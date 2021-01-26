@@ -1,11 +1,11 @@
 name: 'manifest-generator'
 description: ''
-author: 'wiz417'
+author: ''
 inputs:
   path:
     required: true
     description: ''
-    default: 'scripts'
+    default: 'dist'
 runs:
   using: 'node12'
   main: 'scripts/manifest.js'
