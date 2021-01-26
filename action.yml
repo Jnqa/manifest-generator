@@ -2,15 +2,10 @@ name: 'manifest-generator'
 description: ''
 author: 'wiz417'
 inputs:
-  path: # change this
+  path:
     required: true
-    description: 'directory for collecting filenames'
+    description: ''
     default: 'dist'
 runs:
-  using: "composite"
-  steps: 
-    - name: Node
-      run: |
-        npm i;
-        node dist/manifest.js
-      shell: bash
+  using: 'node12'
+  main: 'dist/manifest.js'
