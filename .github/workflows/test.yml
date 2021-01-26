@@ -13,10 +13,13 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '12'
+          node-version: '14'
       - uses: bahmutov/npm-install@v1
-      - run: |
-          npm install
+      - run: npm ci
+      - run: npm run build --if-present
+      - run: npm install
+      - name: npm install
+        uses: jaid/action-npm-install@v1.2.1
       - uses: Jnqa/manifest-generator@main
         with:
           path: 'dist'
