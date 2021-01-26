@@ -14,6 +14,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '12'
+      - uses: bahmutov/npm-install@v1
       - run: |
           npm install
       - uses: Jnqa/manifest-generator@main
