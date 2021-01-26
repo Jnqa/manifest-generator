@@ -1,34 +1,12 @@
 
 name: 'manifest-generator'
 description: ''
+author: ''
 inputs:
   path:
     required: true
     description: ''
     default: 'dist'
 runs:
-  using: "composite"
-  steps:
-    - name: run npm
-      run: |
-        npm install
-      shell: bash
-    - name: run script
-      shell: bash
-      run: |
-        node scripts/manifest.js
-
-
-
-
-#name: 'manifest-generator'
-#description: ''
-#author: ''
-#inputs:
-#  path:
-#    required: true
-#    description: ''
-#    default: 'dist'
-#runs:
-#  using: 'node12'
-#  main: 'scripts/manifest.js'
+  using: 'node12'
+  main: 'scripts/manifest.js'
