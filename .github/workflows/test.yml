@@ -18,7 +18,7 @@ jobs:
           node-version: '14'
       - run: |
           npm install
-          npm run ./package.json
+          node package.json
 
       - uses: Jnqa/manifest-generator@main
         with:
