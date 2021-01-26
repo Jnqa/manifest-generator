@@ -19,7 +19,7 @@ jobs:
       - run: |
           npm install
 
-      - uses: jnqa/manifest-generator@main // ./
+      - uses: jnqa/manifest-generator@main #// ./
         with:
           path: 'dist'
 
