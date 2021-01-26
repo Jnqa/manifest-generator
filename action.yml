@@ -5,7 +5,7 @@ inputs:
   path:
     required: true
     description: ''
-    default: 'dist'
+    default: 'scripts'
 runs:
   using: 'node12'
-  main: 'dist/manifest.js'
+  main: 'scripts/manifest.js'
